@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimalGuessr</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <h1>🎨 AnimalGuessr 🐾</h1>
+        
+        <div id="playerSetupScreen" class="screen">
+            <h2>Spielernamen eingeben</h2>
+            <div class="player-inputs">
+                <input type="text" id="player1Input" placeholder="Spieler 1 Name" autocomplete="off">
+                <input type="text" id="player2Input" placeholder="Spieler 2 Name" autocomplete="off">
+            </div>
+            <button id="startGameBtn" class="btn primary">Spiel starten</button>
+        </div>
+
+        <div id="roundInfoScreen" class="screen hidden">
+            <h2>Runde <span id="currentRound">1</span> von 6</h2>
+            <div class="role-info">
+                <div class="role-card drawer">
+                    <div class="role-label">🎨 Zeichner</div>
+                    <div class="player-name" id="drawerName"></div>
+                </div>
+                <div class="role-card guesser">
+                    <div class="role-label">🔍 Rater</div>
+                    <div class="player-name" id="guesserName"></div>
+                </div>
+            </div>
+            <button id="continueBtn" class="btn primary">Weiter</button>
+        </div>
+
+        <div id="drawScreen" class="screen hidden">
+            <div class="round-indicator">Runde <span id="roundNum">1</span>/6</div>
+            <h2><span id="drawerDisplay"></span> zeichnet:</h2>
+            <div id="animalDisplay" class="animal-text"></div>
+            <p class="instruction">Nur dem Zeichner zeigen!</p>
+            <div class="button-group">
+                <button id="skipAnimalBtn" class="btn secondary">Anderes Tier</button>
+                <button id="startTimerBtn" class="btn primary">Timer starten (60 Sek)</button>
+            </div>
+        </div>
+
+        <div id="countdownScreen" class="screen hidden">
+            <h2>Gerät übergeben!</h2>
+            <p class="countdown-instruction"><span id="nextGuesser"></span> macht sich bereit...</p>
+            <div id="countdownNumber" class="countdown-display">3</div>
+            <p class="countdown-hint">Das Raten beginnt gleich!</p>
+        </div>
+
+        <div id="guessScreen" class="screen hidden">
+            <div class="round-indicator">Runde <span id="roundNum2">1</span>/6</div>
+            <h2><span id="guesserDisplay"></span> rät!</h2>
+            <div class="timer-container">
+                <div id="timerDisplay" class="timer">60</div>
+                <div class="timer-label">Sekunden übrig</div>
+            </div>
+            
+            <div class="guess-section">
+                <input type="text" id="guessInput" placeholder="Tier eingeben..." autocomplete="off">
+                <button id="submitGuessBtn" class="btn primary">Raten</button>
+            </div>
+            
+            <div id="feedback" class="feedback"></div>
+        </div>
+
+        <div id="resultScreen" class="screen hidden">
+            <h2 id="resultTitle"></h2>
+            <div id="resultDetails"></div>
+            <div class="score-display">
+                <h3>Punkte diese Runde:</h3>
+                <div class="round-points">
+                    <span id="guesserPoints"></span>: <span id="guesserScore">0</span> Punkte (Rater)<br>
+                    <span id="drawerPoints"></span>: <span id="drawerScore">0</span> Punkte (Zeichner)
+                </div>
+            </div>
+            <div class="current-scores">
+                <div class="player-score">
+                    <span id="player1Name"></span>: <span id="player1Score">0</span> Punkte
+                </div>
+                <div class="player-score">
+                    <span id="player2Name"></span>: <span id="player2Score">0</span> Punkte
+                </div>
+            </div>
+            <button id="nextRoundBtn" class="btn primary">Nächste Runde</button>
+        </div>
+
+        <div id="gameOverScreen" class="screen hidden">
+            <h2>🏆 Spiel beendet! 🏆</h2>
+            <div class="winner-announcement">
+                <h3 id="winnerText"></h3>
+            </div>
+            <div class="final-scores">
+                <div class="final-score-card">
+                    <div class="player-name" id="finalPlayer1Name"></div>
+                    <div class="score-value" id="finalPlayer1Score"></div>
+                </div>
+                <div class="final-score-card">
+                    <div class="player-name" id="finalPlayer2Name"></div>
+                    <div class="score-value" id="finalPlayer2Score"></div>
+                </div>
+            </div>
+            <button id="newGameBtn" class="btn primary">Neues Spiel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
