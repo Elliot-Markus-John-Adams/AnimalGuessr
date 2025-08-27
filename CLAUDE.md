@@ -1,1 +1,0 @@
-- '/var/folders/zp/7qt4mymx2fjbf5wlscf1w4rc0000gn/T/TemporaryItems/NSIRD_screencaptureui_Wl86bE/Screenshot 2025-08-26 at 22.05.36.png' fix trash
